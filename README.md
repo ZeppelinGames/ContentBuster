@@ -15,6 +15,7 @@ Full parameters:
 `-e` HTML content if found fails test  
 `-i` HTML content if not found fails test  
 `--v` Verbose. Outputs always, even on fail.  
+`--help` Display help  
 
 Example:  
 `node .\contentbuster.js -u https://mydomain.com -w wordlist.txt -p 80 -t 1000 -s "400,404,500" -e "<div>test</div>" -i "<title>My Webpage</title> --v"`
