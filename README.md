@@ -14,6 +14,7 @@ Full parameters:
 `-s` Status codes to ignore in requests  
 `-e` HTML content if found fails test  
 `-i` HTML content if not found fails test  
+`--v` Verbose. Outputs always, even on fail.  
 
 Example:  
-`node .\contentbuster.js -u https://mydomain.com -w wordlist.txt -p 80 -t 1000 -s "400,404,500" -e "<div>test</div>" -i "<title>My Webpage</title>"`
+`node .\contentbuster.js -u https://mydomain.com -w wordlist.txt -p 80 -t 1000 -s "400,404,500" -e "<div>test</div>" -i "<title>My Webpage</title> --v"`

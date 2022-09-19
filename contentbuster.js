@@ -127,9 +127,13 @@ makeRequest("/").then((e) => {
             //console.log(GREEN, e);
 
             //do proper js enabled req
-            requestPage(line, (f) => {
+            requestPage(line, (f, r) => {
                 if (f) {
                     console.log(GREEN, e);
+                } else {
+                    if (verbose) {
+                        console.log(RED, `${e}: ${r}`);
+                    }
                 }
             });
 
@@ -156,15 +160,15 @@ const requestPage = async (path = "/", callback) => {
     await browser.close();
 
     if (exclude.length > 0 && data.includes(exclude)) {
-        callback(false);
+        callback(false, "Includes excluded content");
         return;
     }
     if (includeContent.length > 0 && !data.includes(includeContent)) {
-        callback(false);
+        callback(false, "Doesnt include required content");
         return;
     }
 
-    callback(true);
+    callback(true, "Sucessful");
 }
 
 function isArgument(str) {
